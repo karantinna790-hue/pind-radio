@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pind Radio — Jithe Gaane Yaadan Ban Jaan</title>
+<style>
+:root{--gold:#e6bd63;--cream:#f4e3ba;--brown:#20140b;--panel:#17100a;--line:#80602d;--red:#8e2e22}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090705;color:var(--cream);font-family:Georgia,serif}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.045;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:4px 4px}
+nav{position:fixed;z-index:80;top:0;left:0;right:0;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 3.2vw;background:linear-gradient(#090705f2,#0907059c,transparent);backdrop-filter:blur(5px)}
+.logo{display:flex;align-items:center;gap:10px;font:900 21px/1 Arial;letter-spacing:1px;color:#f0d28b}.logo span{font-size:31px}
+.links{display:flex;gap:40px}.links a{color:#fff;text-decoration:none;font:800 12px Arial;letter-spacing:1.5px}.links a:hover{color:var(--gold)}
+.share{border:1px solid #92703d;border-radius:30px;padding:10px 18px;color:#fff;background:#0b0907aa;font:700 11px Arial;cursor:pointer}
+.hero{min-height:900px;position:relative;background-image:linear-gradient(90deg,#07050335,#07050312 50%,#07050328),url("pind-radio-home.png");background-size:cover;background-position:center top;display:flex;justify-content:center;align-items:flex-start;text-align:center;padding-top:130px}
+.heroContent{width:min(720px,90vw)}.hero h1{font:900 clamp(72px,11vw,145px)/.78 Arial;letter-spacing:-7px;color:#f0d29b;text-shadow:4px 6px 0 #321e0d;margin:40px 0 15px}.hero .tag{font-size:clamp(20px,3vw,34px);font-style:italic}.eyebrow{font:800 11px Arial;letter-spacing:4px;color:#f0c96f}.sub{font:800 12px Arial;letter-spacing:3px;margin-top:13px}.sunobutton{margin-top:27px;display:inline-flex;align-items:center;gap:14px;border:1px solid #b98d45;background:#7e5427;color:#160d07;padding:9px 28px 9px 10px;border-radius:6px;font:900 20px Arial;cursor:pointer;box-shadow:0 8px 35px #000b}.sunobutton i{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#090807;color:#f4d68f;font-style:normal}
+.section{max-width:1280px;margin:auto;padding:65px 3.2vw}.sectionTitle{text-align:center}.sectionTitle h2{font:900 31px Arial;color:#f1d18d;margin:0}.sectionTitle p{color:#b9a889;margin:8px 0 28px}
+.stations{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.station{min-height:245px;border:1px solid #7c5d2e;border-radius:7px;background:linear-gradient(150deg,#352513,#110c08);overflow:hidden;position:relative;cursor:pointer;transition:.2s}.station:hover{transform:translateY(-6px);border-color:#d9af57}.station .stripe{height:8px;background:var(--gold)}.station .face{height:145px;display:grid;place-items:center;font-size:55px;background:linear-gradient(#0000,#0009)}.station h3{font:900 14px Arial;text-align:center;margin:8px 5px 4px;color:#f2d18c}.station small{display:block;text-align:center;font:10px Arial;color:#c3ad84}.station .splay{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);width:38px;height:38px;border-radius:50%;border:1px solid #c89b4e;background:#171009;color:#f0d18e}
+.playerSection{background:linear-gradient(180deg,#171009,#0a0805);border-top:1px solid #392916;border-bottom:1px solid #392916}.playerGrid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}.videoBox{background:#050505;border:1px solid #72552b;border-radius:12px;padding:8px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:8px}.now{border:1px solid #72552b;border-radius:12px;background:linear-gradient(145deg,#2a1b0e,#110c08);padding:25px}.now h2{font:900 27px Arial;color:#f0ce7c;margin:0}.now .status{font:11px Arial;color:#a99676;margin:6px 0 20px}.now p{line-height:1.65;color:#cdbd9d}.sourceBtns{display:flex;gap:8px;flex-wrap:wrap}.sourceBtns a{padding:10px 13px;border-radius:5px;text-decoration:none;background:#24170c;border:1px solid #795a2d;color:#efd08c;font:700 12px Arial}
+.songlist{margin-top:22px;border:1px solid #6e522a;border-radius:10px;background:#120e09;overflow:hidden}.songhead{padding:14px 16px;background:#21170d;font:900 13px Arial;color:#e9c776}.song{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;border-top:1px solid #2c2116;font:13px Arial;color:#d7c6a5}.song button{background:none;border:1px solid #6f532b;color:#eacb82;border-radius:4px;padding:6px 9px;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:20px;border:1px solid #6d512a;border-radius:10px;background:#171009}.card h3{font:900 20px Arial;color:#e7c477;margin:0 0 8px}.card p{color:#b8a98e;line-height:1.55}.card a{color:#e4bd68;font:700 12px Arial;text-decoration:none}
+footer{text-align:center;padding:45px 20px;border-top:1px solid #302217;color:#8c7c62;font:11px Arial;letter-spacing:1px}
+@media(max-width:1050px){.stations{grid-template-columns:repeat(4,1fr)}}@media(max-width:750px){.links{display:none}.hero{min-height:760px;padding-top:110px}.playerGrid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.stations{grid-template-columns:repeat(2,1fr)}}@media(max-width:450px){.cards{grid-template-columns:1fr}.hero h1{letter-spacing:-4px}.stations{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav><div class="logo"><span>📻</span>PIND<br>RADIO</div><div class="links"><a href="#home">HOME</a><a href="#stations">STATIONS</a><a href="#artists">ARTISTS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div><button class="share" onclick="shareSite()">SHARE PIND RADIO　↗</button></nav>
+
+<section class="hero" id="home">
+<div class="heroContent">
+<div class="eyebrow">OLD PUNJABI SONGS • PURE YAADAN</div>
+<h1>PIND<br>RADIO</h1>
+<div class="tag">Jithe gaane yaadan ban jaan.</div>
+<div class="sub">OLD PUNJABI SONGS. PURE YAADAN.</div>
+<button class="sunobutton" onclick="playArtist('Chamkila')"><i>▶</i> SUNO</button>
+</div>
+</section>
+
+<section class="section" id="stations">
+<div class="sectionTitle"><h2>📻 CHOOSE YOUR STATION 📻</h2><p>Har mood da ik gaana</p></div>
+<div class="stations">
+<div class="station" onclick="playArtist('Chamkila')"><div class="stripe"></div><div class="face">🎤</div><h3>CHAMKILA</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('Kuldeep Manak')"><div class="stripe"></div><div class="face">👑</div><h3>KULDEEP<br>MANAK</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('Gurdas Maan')"><div class="stripe"></div><div class="face">❤️</div><h3>GURDAS<br>MAAN</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('Surinder Kaur')"><div class="stripe"></div><div class="face">🌾</div><h3>SURINDER<br>KAUR</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('Sadiq & Ranjit Kaur')"><div class="stripe"></div><div class="face">🎶</div><h3>SADIQ &<br>RANJIT KAUR</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('Surjit Bindrakhia')"><div class="stripe"></div><div class="face">🔥</div><h3>SURJIT<br>BINDRAKHIA</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+<div class="station" onclick="playArtist('NSFK')"><div class="stripe"></div><div class="face">🕊️</div><h3>NSFK</h3><small>PLAY STATION</small><button class="splay">▶</button></div>
+</div>
+</section>
+
+<section class="playerSection">
+<div class="section">
+<div class="sectionTitle"><h2>🎧 NOW PLAYING</h2><p>Full-length playback uses the YouTube player — no 30-second Spotify preview limitation.</p></div>
+<div class="playerGrid">
+<div class="videoBox"><div id="ytplayer" class="video"></div></div>
+<div class="now"><h2 id="title">Pind Radio</h2><div class="status" id="status">Choose a station above.</div><p id="desc">When an official/authorized full-length YouTube upload is available, Pind Radio loads it here. The browser stays on that video until it finishes; it does not intentionally cut playback after 30 seconds.</p><div class="sourceBtns"><a id="ytlink" href="https://www.youtube.com/results?search_query=old+punjabi+songs+saregama+punjabi" target="_blank">Open YouTube</a><a id="spotlink" href="https://open.spotify.com/" target="_blank">Open Spotify</a></div></div>
+</div>
+<div class="songlist"><div class="songhead">START WITH THESE REAL FULL-LENGTH UPLOADS</div>
+<div class="song"><span>Chamkila & Amarjot — Non-Stop Hits (46+ min)</span><button onclick="loadVideo('bSoT1_eDirE','Chamkila & Amarjot — Non-Stop Hits')">▶ PLAY</button></div>
+<div class="song"><span>Gurdas Maan — Best Punjabi Hits (1h 20m+)</span><button onclick="loadVideo('3dQ4WF5qkAg','Gurdas Maan — Best Punjabi Hits')">▶ PLAY</button></div>
+<div class="song"><span>Gurdas Maan — Top 10 Hits (50+ min)</span><button onclick="loadVideo('V3ddfJeAVCc','Gurdas Maan — Top 10 Hits')">▶ PLAY</button></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="artists">
+<div class="sectionTitle"><h2>THE PIND LEGENDS</h2><p>Use the artist buttons to open the best available official/authorized source.</p></div>
+<div class="cards">
+<div class="card"><h3>Chamkila</h3><p>Full-length Saregama Punjabi compilation available in the player above.</p><a href="https://www.youtube.com/watch?v=bSoT1_eDirE" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>Kuldeep Manak</h3><p>Open the artist's YouTube Music results to choose a full upload.</p><a href="https://www.youtube.com/results?search_query=Kuldeep+Manak+Saregama+Punjabi+full+songs" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>Gurdas Maan</h3><p>Full-length verified Saregama Punjabi compilations are available.</p><a href="https://www.youtube.com/watch?v=3dQ4WF5qkAg" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>Surinder Kaur</h3><p>Search the official/authorized catalogue for full-length uploads.</p><a href="https://www.youtube.com/results?search_query=Surinder+Kaur+Saregama+Punjabi+full+songs" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>Sadiq & Ranjit Kaur</h3><p>Open full-length authorized uploads from the relevant catalogue.</p><a href="https://www.youtube.com/results?search_query=Mohammed+Sadiq+Ranjit+Kaur+Saregama+Punjabi+full+songs" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>Surjit Bindrakhia</h3><p>Search for full-length authorized uploads.</p><a href="https://www.youtube.com/results?search_query=Surjit+Bindrakhia+Saregama+Punjabi+full+songs" target="_blank">YouTube ↗</a></div>
+<div class="card"><h3>NSFK</h3><p>I have treated NSFK as Nusrat Fateh Ali Khan. Tell me if you meant another artist.</p><a href="https://www.youtube.com/results?search_query=Nusrat+Fateh+Ali+Khan+official+full+songs" target="_blank">YouTube ↗</a></div>
+</div>
+</section>
+
+<section class="section" id="about"><div class="sectionTitle"><h2>🌾 PIND DIYA YAADAN</h2><p>Ohi gaane, ohi mahol, jithhe har kise di ik yaad judi ae.</p></div></section>
+<footer id="contact">PIND RADIO • JITHE GAANE YAADAN BAN JAAN<br><br>Music is played through YouTube/Spotify's own services. Pind Radio does not host or redistribute copyrighted audio files.</footer>
+
+<script>
+let player;
+const videos={
+"Chamkila":"bSoT1_eDirE",
+"Gurdas Maan":"3dQ4WF5qkAg",
+"Surinder Kaur":null,"Kuldeep Manak":null,"Sadiq & Ranjit Kaur":null,"Surjit Bindrakhia":null,"NSFK":null
+};
+const searchLinks={
+"Chamkila":"https://www.youtube.com/watch?v=bSoT1_eDirE",
+"Gurdas Maan":"https://www.youtube.com/watch?v=3dQ4WF5qkAg",
+"Kuldeep Manak":"https://www.youtube.com/results?search_query=Kuldeep+Manak+Saregama+Punjabi+full+songs",
+"Surinder Kaur":"https://www.youtube.com/results?search_query=Surinder+Kaur+Saregama+Punjabi+full+songs",
+"Sadiq & Ranjit Kaur":"https://www.youtube.com/results?search_query=Mohammed+Sadiq+Ranjit+Kaur+Saregama+Punjabi+full+songs",
+"Surjit Bindrakhia":"https://www.youtube.com/results?search_query=Surjit+Bindrakhia+Saregama+Punjabi+full+songs",
+"NSFK":"https://www.youtube.com/results?search_query=Nusrat+Fateh+Ali+Khan+official+full+songs"
+};
+function loadVideo(id,name){
+ if(!player){player=new YT.Player('ytplayer',{videoId:id,playerVars:{playsinline:1,rel:0},events:{}})}
+ else player.loadVideoById(id);
+ document.getElementById('title').textContent=name;
+ document.getElementById('status').textContent='Full YouTube playback';
+ document.getElementById('ytlink').href='https://www.youtube.com/watch?v='+id;
+ document.querySelector('.playerSection').scrollIntoView({behavior:'smooth'});
+}
+function playArtist(name){
+ const id=videos[name];
+ if(id) loadVideo(id,name+' Radio');
+ else{
+   document.getElementById('title').textContent=name+' Radio';
+   document.getElementById('status').textContent='Official full-length source';
+   document.getElementById('ytlink').href=searchLinks[name];
+   document.querySelector('.playerSection').scrollIntoView({behavior:'smooth'});
+ }
+}
+function onYouTubeIframeAPIReady(){player=new YT.Player('ytplayer',{videoId:'bSoT1_eDirE',playerVars:{playsinline:1,rel:0},events:{}})}
+function shareSite(){if(navigator.share) navigator.share({title:'Pind Radio',text:'Jithe gaane yaadan ban jaan.',url:location.href});else navigator.clipboard?.writeText(location.href).then(()=>alert('Link copied to clipboard.'))}
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
